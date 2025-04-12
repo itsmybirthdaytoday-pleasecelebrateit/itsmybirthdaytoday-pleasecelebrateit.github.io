@@ -43,9 +43,9 @@
   
   <button id="celebrateBtn" onclick="startCelebration()">celebrate</button>
   <br>
-  <input type="text" id="dateInput" placeholder="What's today’s date?" onkeydown="if(event.key === 'Enter') validateDate()">
+  <input type="text" id="dateInput" placeholder="put it here" onkeydown="if(event.key === 'Enter') validateDate()">
   <br>
-  <input type="text" id="nameInput" placeholder="What's her name?" onkeydown="if(event.key === 'Enter') validateName()">
+  <input type="text" id="nameInput" placeholder="put it here" onkeydown="if(event.key === 'Enter') validateName()">
 
   <script>
     const acceptedDates = [
@@ -69,16 +69,16 @@
         document.getElementById("nameInput").style.display = "inline-block";
         document.getElementById("nameInput").focus();
       } else {
-        alert("That's not quite the date I'm thinking of... try again?");
+        alert("nope...");
       }
     }
 
     function validateName() {
       const input = document.getElementById("nameInput").value.trim().toLowerCase();
       if (input === "sarah sallow") {
-        alert("Yay!! You're the best! 🛝💙");
+        alert("thank you. lets go on a walk through the trail. to the bridge...");
       } else {
-        alert("Hmm... that doesn't sound right. Try again?");
+        alert("no.");
       }
     }
   </script>
