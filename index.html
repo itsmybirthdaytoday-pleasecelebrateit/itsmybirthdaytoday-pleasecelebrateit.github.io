@@ -12,6 +12,7 @@
       font-family: Arial, sans-serif;
       text-align: center;
       margin-top: 20%;
+      transition: background-color 1s, color 1s;
     }
 
     button, input {
@@ -39,13 +40,15 @@
   </style>
 </head>
 <body>
-  <p>its my birthday today. please celebrate it.</p>
+  <p id="mainText">its my birthday today. please celebrate it.</p>
   
   <button id="celebrateBtn" onclick="startCelebration()">celebrate</button>
   <br>
   <input type="text" id="dateInput" placeholder="put it here" onkeydown="if(event.key === 'Enter') validateDate()">
   <br>
   <input type="text" id="nameInput" placeholder="put it here" onkeydown="if(event.key === 'Enter') validateName()">
+  <br>
+  <input type="text" id="finalDateInput" placeholder="put it here" onkeydown="if(event.key === 'Enter') validateFinalDate()">
 
   <script>
     const acceptedDates = [
@@ -77,8 +80,29 @@
       const input = document.getElementById("nameInput").value.trim().toLowerCase();
       if (input === "sarah sallow") {
         alert("thank you. lets go on a walk through the trail. to the bridge...");
+        
+        // change theme
+        document.body.style.backgroundColor = "#1a1a1a";
+        document.body.style.color = "#d0e1ff";
+        document.title = "i think today is my birthday";
+        document.getElementById("mainText").textContent = "i think today is my birthday";
+
+        // switch input fields
+        document.getElementById("nameInput").style.display = "none";
+        document.getElementById("finalDateInput").style.display = "inline-block";
+        document.getElementById("finalDateInput").focus();
       } else {
         alert("no.");
+      }
+    }
+
+    function validateFinalDate() {
+      const input = document.getElementById("finalDateInput").value.trim().toLowerCase();
+      if (acceptedDates.some(date => input === date.toLowerCase())) {
+        alert("oh. i forgot...");
+        // You can continue from here with more mysterious prompts, visuals, audio, etc.
+      } else {
+        alert("what's that supposed to mean?");
       }
     }
   </script>
