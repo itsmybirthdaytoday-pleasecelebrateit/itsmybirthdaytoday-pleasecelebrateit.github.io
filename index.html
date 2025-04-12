@@ -32,6 +32,27 @@
 </head>
 <body>
   <p>its my birthday today. please celebrate it.</p>
-  <button onclick="alert('i really like the dog park. can we please go there?')">celebrate</button>
+  <button onclick="checkDate()">celebrate</button>
+
+  <script>
+    function checkDate() {
+      const acceptedDates = [
+        "4/12", "4/12/2025", "04/12", "04/12/2025",
+        "april 12", "april 12th", "april 12, 2025", "april 12th, 2025",
+        "Apr 12", "Apr 12, 2025", "Apr 12th, 2025"
+      ];
+
+      let input = prompt("What’s today’s date?");
+      if (!input) return;
+
+      input = input.trim().toLowerCase();
+
+      if (acceptedDates.some(date => input === date.toLowerCase())) {
+        alert("i really like the dog park. can we please go there?");
+      } else {
+        alert("hm... that's not today. maybe check the calendar?");
+      }
+    }
+  </script>
 </body>
 </html>
