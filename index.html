@@ -44,6 +44,8 @@
   <button id="celebrateBtn" onclick="startCelebration()">celebrate</button>
   <br>
   <input type="text" id="dateInput" placeholder="What's today’s date?" onkeydown="if(event.key === 'Enter') validateDate()">
+  <br>
+  <input type="text" id="nameInput" placeholder="What's her name?" onkeydown="if(event.key === 'Enter') validateName()">
 
   <script>
     const acceptedDates = [
@@ -56,14 +58,27 @@
       alert("i really like the dog park. can we please go there?");
       document.getElementById("celebrateBtn").style.display = "none";
       document.getElementById("dateInput").style.display = "inline-block";
+      document.getElementById("dateInput").focus();
     }
 
     function validateDate() {
       const input = document.getElementById("dateInput").value.trim().toLowerCase();
       if (acceptedDates.some(date => input === date.toLowerCase())) {
-        alert("🎉 You got it! Let’s go celebrate! 🐾");
+        alert("wow, this place is fun. can we go to the playground now?");
+        document.getElementById("dateInput").style.display = "none";
+        document.getElementById("nameInput").style.display = "inline-block";
+        document.getElementById("nameInput").focus();
       } else {
         alert("That's not quite the date I'm thinking of... try again?");
+      }
+    }
+
+    function validateName() {
+      const input = document.getElementById("nameInput").value.trim().toLowerCase();
+      if (input === "sarah sallow") {
+        alert("Yay!! You're the best! 🛝💙");
+      } else {
+        alert("Hmm... that doesn't sound right. Try again?");
       }
     }
   </script>
