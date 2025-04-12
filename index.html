@@ -14,43 +14,56 @@
       margin-top: 20%;
     }
 
-    button {
+    button, input {
       margin-top: 20px;
       padding: 10px 20px;
       font-size: 18px;
+      border-radius: 8px;
+    }
+
+    button {
       background-color: #007BFF;
       color: white;
       border: none;
-      border-radius: 8px;
       cursor: pointer;
     }
 
     button:hover {
       background-color: #0056b3;
     }
+
+    input {
+      border: 2px solid #007BFF;
+      display: none;
+    }
   </style>
 </head>
 <body>
   <p>its my birthday today. please celebrate it.</p>
-  <button onclick="checkDate()">celebrate</button>
+  
+  <button id="celebrateBtn" onclick="startCelebration()">celebrate</button>
+  <br>
+  <input type="text" id="dateInput" placeholder="What's today’s date?" onkeydown="if(event.key === 'Enter') validateDate()">
 
   <script>
-    function checkDate() {
-      const acceptedDates = [
-        "4/12", "4/12/2025", "04/12", "04/12/2025",
-        "april 12", "april 12th", "april 12, 2025", "april 12th, 2025",
-        "Apr 12", "Apr 12, 2025", "Apr 12th, 2025"
-      ];
+    const acceptedDates = [
+      "4/12", "4/12/2025", "04/12", "04/12/2025",
+      "april 12", "april 12th", "april 12, 2025", "april 12th, 2025",
+      "apr 12", "apr 12, 2025", "apr 12th, 2025"
+    ];
 
-      let input = prompt("What’s today’s date?");
-      if (!input) return;
+    function startCelebration() {
+      alert("i really like the dog park. can we please go there?");
+      document.getElementById("celebrateBtn").style.display = "none";
+      document.getElementById("dateInput").style.display = "inline-block";
+    }
 
-      input = input.trim().toLowerCase();
-
+    function validateDate() {
+      const input = document.getElementById("dateInput").value.trim().toLowerCase();
       if (acceptedDates.some(date => input === date.toLowerCase())) {
-        alert("i really like the dog park. can we please go there?");
+        alert("🎉 You got it! Let’s go celebrate! 🐾");
       } else {
-        alert("hm... that's not today. maybe check the calendar?");
+        alert("That's not quite the date I'm thinking of... try again?");
       }
     }
   </script>
