@@ -51,7 +51,13 @@
   <input type="text" id="finalDateInput" placeholder="put it here" onkeydown="if(event.key === 'Enter') validateFinalDate()">
 
   <script>
-    const acceptedDates = [
+    const acceptedDates1 = [
+      "4/13", "4/13/2000", "04/13", "04/13/2000",
+      "april 13", "april 13th", "april 13, 2000", "april 13th, 2000",
+      "apr 13", "apr 13, 2000", "apr 13th, 2000"
+    ];
+
+    const acceptedDates2 = [
       "4/12", "4/12/2025", "04/12", "04/12/2025",
       "april 12", "april 12th", "april 12, 2025", "april 12th, 2025",
       "apr 12", "apr 12, 2025", "apr 12th, 2025"
@@ -66,7 +72,7 @@
 
     function validateDate() {
       const input = document.getElementById("dateInput").value.trim().toLowerCase();
-      if (acceptedDates.some(date => input === date.toLowerCase())) {
+      if (acceptedDates1.some(date => input === date.toLowerCase())) {
         alert("wow, this place is fun. can we go to the playground now?");
         document.getElementById("dateInput").style.display = "none";
         document.getElementById("nameInput").style.display = "inline-block";
@@ -98,7 +104,7 @@
 
     function validateFinalDate() {
       const input = document.getElementById("finalDateInput").value.trim().toLowerCase();
-      if (acceptedDates.some(date => input === date.toLowerCase())) {
+      if (acceptedDates2.some(date => input === date.toLowerCase())) {
         alert("oh. i forgot...");
         // You can continue from here with more mysterious prompts, visuals, audio, etc.
       } else {
