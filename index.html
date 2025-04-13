@@ -64,7 +64,7 @@
     ];
 
     function startCelebration() {
-      alert("i really like the dog park. can we please go there?");
+      alert("i really like the guest room. can we please go there?");
       document.getElementById("celebrateBtn").style.display = "none";
       document.getElementById("dateInput").style.display = "inline-block";
       document.getElementById("dateInput").focus();
@@ -73,7 +73,7 @@
     function validateDate() {
       const input = document.getElementById("dateInput").value.trim().toLowerCase();
       if (acceptedDates1.some(date => input === date.toLowerCase())) {
-        alert("wow, this place is fun. can we go to the playground now?");
+        alert("wow, this place is fun. can we go to the front lawn now?");
         document.getElementById("dateInput").style.display = "none";
         document.getElementById("nameInput").style.display = "inline-block";
         document.getElementById("nameInput").focus();
@@ -85,7 +85,7 @@
     function validateName() {
       const input = document.getElementById("nameInput").value.trim().toLowerCase();
       if (input === "sarah sallow") {
-        alert("thank you. lets go on a walk through the trail. to the bridge...");
+        alert("thank you. lets go on a walk outside. to the shed...");
         
         // change theme
         document.body.style.backgroundColor = "#1a1a1a";
